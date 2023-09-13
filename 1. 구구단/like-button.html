@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>좋아요</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+<body>
+    <div id="root">
+        <!--v가 붙으면 데이터나 메서드에 접근 가능-->
+        <div v-if="liked">좋아요 눌렀음</div>
+        <button v-else v-on:click="onClickButton">like</button>
+    </div>
+</body>
+<script>
+    const app=new Vue({
+        el:'#root',
+        data:{
+            liked:false,
+            //데이터를 넣으면 화면이 알아서 바뀜
+        },
+        methods:{
+            onClickButton(){
+                this.liked=true; //this->data
+            }
+        }
+    });
+</script>
+</html>
