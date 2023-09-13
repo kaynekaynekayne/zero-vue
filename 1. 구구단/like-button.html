@@ -8,6 +8,7 @@
 </head>
 <body>
     <div id="root">
+        <!--데이터 중심으로 사고해야함-->
         <!--v가 붙으면 데이터나 메서드에 접근 가능-->
         <div v-if="liked">좋아요 눌렀음</div>
         <button v-else v-on:click="onClickButton">like</button>
@@ -15,7 +16,7 @@
 </body>
 <script>
     const app=new Vue({
-        el:'#root',
+        el:'#root', //위에서 <div id="root">
         data:{
             liked:false,
             //데이터를 넣으면 화면이 알아서 바뀜
