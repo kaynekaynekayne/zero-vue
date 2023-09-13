@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>끝말잇기</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+<body>
+    <div id="root">
+        <word-relay start-word="제로초"></word-relay>
+        <word-relay start-word="초밥"></word-relay>
+        <word-relay start-word="바보"></word-relay>
+    </div>
+
+    <script>
+        Vue.component('word-relay',{
+            // template:`
+            //     <div>{{word}}</div>
+            //         <form v-on:submit="onSubmitForm">
+            //             <input type="text" ref="answer" v-model="value">
+            //             <button type="submit">입력</button>
+            //         </form>
+            //     <div>{{result}}</div>
+            // `,
+            // Component template should contain exactly one root element.
+            // 부모 태그가 전체를 감싸줘야 함 
+
+            template:`
+                <div>
+                    <div>{{word}}</div>
+                        <form v-on:submit="onSubmitForm">
+                            <input type="text" ref="answer" v-model="value">
+                            <button type="submit">입력</button>
+                        </form>
+                    <div>{{result}}</div>
+                </div>
+            `,
+
+            props:['startWord'],
+            
+            // data:{
+            //     word : '끝말잇기',
+            //     result :'' ,//결과
+            //     value : ''//inputvalue값
+            // },
+            
+            // The "data" option should be a function
+            // that returns a per-instance value in component definitions.
+
+            data(){
+                return{
+                    word:this.startWord,
+                    result:"",
+                    value:"",
+                }
+            }, 
+            methods:{
+                onSubmitForm(e){
+                    e.preventDefault();
+                    if(this.word[this.word.length-1]===this.value[0]){
+                        this.result="딩동댕";
+                        this.word=this.value;
+                        this.value="";
+                        this.$refs.answer.focus();
+                    } else{
+                        this.result="땡"
+                        this.value=""
+                    }
+                }
+            }
+        });
+    </script>
+
+    <script>
+        const app=new Vue({
+            el:"#root",
+        })
+    </script>
+</body>
+</html>

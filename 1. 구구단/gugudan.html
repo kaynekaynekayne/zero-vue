@@ -11,10 +11,10 @@
         <div>{{first}} 곱하기 {{second}}는?</div>
         <!-- <div>{{first+second}}</div> 이런 것도 가능 -->
         <form v-on:submit="onSubmitForm">
-            <input type="number" v-model="value"> 
+            <input type="number" ref="answer" v-model="value"> 
             <!--v-model="value"가 밑의 data:{value}와 연결-->
             <button type="submit">입력</button>
-            
+
             <!-- <div>{{value}}</div> -->
             <div id="result">{{result}}</div>
         </form>
@@ -34,8 +34,13 @@
                     e.preventDefault();
                     if(this.first*this.second===parseInt(this.value)){
                         this.result="정답";
+                        this.first=Math.ceil(Math.random()*9);
+                        this.secound=Math.ceil(Math.random()*9);
+                        this.value="";
+                        this.$refs.answer.focus();
                     } else{
                         this.result="땡";
+                        this.value="";
                     }
                 }
             }
