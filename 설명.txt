@@ -1,2 +1,16 @@
 
 webpack-> 스크립트가 길어지는 불편함을 해결해줌
+
+1.
+"scripts": {
+    "build": "webpack"
+  },
+로 수정함 (npm run build를 하기 위한)
+
+2. npm i vue-loader
+
+3. npm i vue-template-compiler
+
+4. npm i vue@2.7.0
+
+5. npm run build
