@@ -1,3 +1,30 @@
+* 화면이 렌더링 되자마자 바위가위보가 나와야 함
+(라이프 사이클)
+
+created: 데이터가 준비됐지만 화면에는 나타나기 전
+mounted: 화면에 나타난 후
+updated: 데이터가 바뀌어서 화면에 다시 그려질 때 
+destroyed: 
+  <lifecycle-example v-if="true"/>
+  여기서 true가 false가 될 때 => 화면에서 사라짐
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 webpack-> 스크립트가 길어지는 불편함을 해결해줌
 
