@@ -1,9 +1,9 @@
 import Vue from 'vue'
-// import App from './App.vue'
-import LottoGenerator from './LottoGenerator.vue'
+import App from './App.vue'
+// import LottoGenerator from './LottoGenerator.vue'
 
 Vue.config.productionTip = false
 
 new Vue({
-  render: h => h(LottoGenerator),
+  render: h => h(App),
 }).$mount('#app')
